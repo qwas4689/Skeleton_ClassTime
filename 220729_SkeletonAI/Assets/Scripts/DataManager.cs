@@ -12,11 +12,11 @@ public class MonsterData
 
     public MonsterData(int index, string name, float moveSpeed, float rotationSpeed, string description)
     {
-        this.index = 1;
-        this.name = "Skeleton";
-        this.moveSpeed = 1;
-        this.rotationSpeed = 1;
-        this.description = "ÀÏ¹Ý ½ºÄÌ·¹Åæ";
+        this.index = index;
+        this.name = name;
+        this.moveSpeed = moveSpeed;
+        this.rotationSpeed = rotationSpeed;
+        this.description = description;
     }
 }
 

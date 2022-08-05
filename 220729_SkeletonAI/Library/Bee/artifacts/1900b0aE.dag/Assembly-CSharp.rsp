@@ -322,7 +322,7 @@
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/NetStandard/ref/2.1.0/netstandard.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/PlaybackEngines/AndroidPlayer/Unity.Android.Gradle.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/PlaybackEngines/AndroidPlayer/Unity.Android.Types.dll"
--r:"C:/Users/KGA_04/Downloads/220729_SkeletonAI/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll"
+-r:"C:/unity/Skeleton_ClassTime/220729_SkeletonAI/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.PlasticSCM.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Rider.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Services.Core.Analytics.ref.dll"
@@ -336,12 +336,12 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
-"Assets/DataManager.cs"
-"Assets/DissolveCtrl.cs"
 "Assets/DissolveEmissionShader/DissolveSphere.cs"
-"Assets/EnemyAI.cs"
-"Assets/ITargetable.cs"
-"Assets/PlayerCtrl.cs"
+"Assets/Scripts/DataManager.cs"
+"Assets/Scripts/DissolveCtrl.cs"
+"Assets/Scripts/EnemyAI.cs"
+"Assets/Scripts/ITargetable.cs"
+"Assets/Scripts/PlayerCtrl.cs"
 -langversion:9.0
 
 /deterministic
