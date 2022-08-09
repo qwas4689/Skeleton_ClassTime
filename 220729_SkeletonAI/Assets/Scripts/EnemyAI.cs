@@ -39,7 +39,9 @@ public class EnemyAI : MonoBehaviour
 
     private void Awake()
     {
-        MonsterData data = DataManager.Instance.GetMonsterData(1);
+        DataManager.Instance.SaveGameData();
+
+        MonsterData data = DataManager.Instance.GetMonsterData(2);
         moveSpeed = data.moveSpeed;
         rotationSpeed = data.rotationSpeed;
     }

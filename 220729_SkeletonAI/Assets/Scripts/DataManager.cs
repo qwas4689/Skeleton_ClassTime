@@ -1,6 +1,33 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+
+
+[Serializable]
+
+public class GameData
+{
+    public int BGM_Volume = 0;
+    public int Effect_Volume = 0;
+
+    public int gold = 0;
+    public int hp = 10;
+    public float moveSpeed = 5f;
+
+    public List<MonsterData> monsterKillDatas;
+
+    public GameData(int _gold, int _hp, float _moveSpeed)
+    {
+        gold = _gold;
+        hp = _hp;
+        moveSpeed = _moveSpeed;
+        monsterKillDatas = new List<MonsterData>();
+    }
+}
+
+[Serializable]
 
 public class MonsterData
 {
@@ -47,11 +74,63 @@ public class DataManager : MonoBehaviour
         }
     }
 
+    GameData gameDatas;
+    public GameData GameData
+    {
+        get
+        {
+            if (gameDatas == null)
+            {
+                LoadGameData();
+                SaveGameData();
+            }
+
+            return gameDatas;
+        }
+    }
+
+    void InitGameData()
+    {
+        gameDatas = new GameData(100, 300, 5f);
+
+        gameDatas.monsterKillDatas.Add(new MonsterData(1, "ÀüÁöÀ±", 2f, 1f, "¿À´Ã ¾È¿È"));
+        gameDatas.monsterKillDatas.Add(new MonsterData(2, "±ÇÈñ¿µ", 2f, 1f, "¿À´Ã ¾È¿È"));
+    }
+
+    public void SaveGameData()
+    {
+        InitGameData();
+        string toJsonData = JsonUtility.ToJson(gameDatas, true);
+        string filePath = Application.persistentDataPath + GameDataFileName;
+        File.WriteAllText(filePath, toJsonData);
+    }
+
+    public void LoadGameData()
+    {
+        string filePath = Application.persistentDataPath + GameDataFileName;
+
+        if (File.Exists(filePath))
+        {
+            string fromJsonData = File.ReadAllText(filePath);
+            gameDatas = JsonUtility.FromJson<GameData>(fromJsonData);
+
+            if (gameDatas == null)
+            {
+                InitGameData();
+            }
+        }
+        else
+        {
+            InitGameData();
+        }
+
+    }
+
     public string GameDataFileName = ".json";
 
     [Header("¸ó½ºÅÍ °ü·Ã DB")]
     [SerializeField] TextAsset monsterDB;
-    public Dictionary<int, MonsterData> MonsterDataDict {get; set;}
+    public Dictionary<int, MonsterData> MonsterDataDict { get; set; }
 
     private void SetMonsterDataFromCSV()
     {
